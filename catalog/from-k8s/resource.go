@@ -501,6 +501,7 @@ func (t *ServiceResource) generateRegistrations(key string) {
 				seen[addr] = struct{}{}
 
 				r := baseNode
+				r.Node = fmt.Sprintf("%v.%v.%v", subsetAddr.TargetRef.Name, subsetAddr.TargetRef.Namespace, r.Node)
 				rs := baseService
 				r.Service = &rs
 				r.Service.ID = serviceID(r.Service.Service, addr)
